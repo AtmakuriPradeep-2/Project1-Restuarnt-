@@ -34,14 +34,18 @@ const storage = multer.diskStorage({
     }
  
 }
-const deleteFirmByID=async(req,res)=>{
+const deleteFirmById=async(req,res)=>{
   try{
     const firmId=req.params.firmId;
     const deletedFirm=await Firm.findByIdAndDelete(firmId);
     if(!deletedFirm)
     {
-      return res.status(404).json({error:"No Firm found"})
+      return res.status(404).json({error:"No Firm found"});
+      
     }
+    res.status(200).json({ message: "Firm deleted successfully" });
+
+
   }catch(error){
     console.error(error);
 
