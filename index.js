@@ -6,7 +6,7 @@ const bodyParser=require('body-parser');
 const firmRoutes=require('./routes/firmRoutes')
 const productRoutes=require('./routes/productRoutes')
 const app=express()
-const PORT=1000;
+const PORT=process.env.PORT || 1000;
 dotEnv.config();
 mongoose.connect(process.env.MONGO_URI)
 .then(()=> console.log("MongoDB connected successfully!"))
@@ -19,7 +19,7 @@ app.use('/uploads',express.static('uploads'));
 app.listen(PORT,() => {
     console.log(`server started and running at ${PORT}` );
     });
-    app.use('/home',(req,res) => {
+    app.use('/',(req,res) => {
         res.send("<h1>Welcome to FoodNest ");
     });
 
