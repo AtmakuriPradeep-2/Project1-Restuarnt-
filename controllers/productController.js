@@ -71,4 +71,4 @@ const storage = multer.diskStorage({
 
     }
   }
-  module.exports={addProduct:[upload.single('image'),addProduct],getProductByFirm,deleteProductByID};
+  module.exports={addProduct:[upload.single('image'),addProduct],getProductByFirm,deleteProductById};
